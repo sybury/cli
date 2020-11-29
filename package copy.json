@@ -1,0 +1,41 @@
+{
+  "name": "sybury-cli",
+  "version": "0.1.0",
+  "description": "CLI for sybury apps",
+  "author": "Siddhant Gupta",
+  "main": "bin/index.js",
+  "source": "src/index.ts",
+  "bin": {
+    "sybury": "bin/index.js"
+  },
+  "scripts": {
+    "bundle": "microbundle -f cjs --target node --compress --sourcemap false --raw false",
+    "start": "nodemon --watch \"bin\" --exec \"node bin\"",
+    "watch": "yarn bundle --watch",
+    "clean": "rm -rf bin",
+    "build": "yarn run clean; yarn bundle",
+    "ci": "rm yarn.lock; rm -rf node_modules; yarn",
+    "rms": "rm sybury.yml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github:/sybury/cli"
+  },
+  "keywords": [
+    "cli",
+    "sybury"
+  ],
+  "license": "MIT",
+  "files": [
+    "bin"
+  ],
+  "dependencies": {
+    "yaml": "1.10"
+  },
+  "devDependencies": {
+    "@types/node": "14.14",
+    "microbundle": "^0.12.4",
+    "nodemon": "2.0",
+    "typescript": "4.1"
+  }
+}
